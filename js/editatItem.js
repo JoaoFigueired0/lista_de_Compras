@@ -1,10 +1,13 @@
+import { salvarItens } from "./localStorage.js";
+
+
 export const editarItem = (elemento) => {
     let novoItem = prompt("Digite o novo nome do item:");
     
     if(novoItem !== null && novoItem.trim() !== "") {
-        const itemTextoAtualizado = elemento.querySelector("#item-titulo");
-        itemTextoAtualizado.textContent = novoItem
-    
+        const itemTextoAtualizado = novoItem;
+        itemTextoAtualizado.textContent = salvarItens(itemTextoAtualizado)
+        
         const estavaComprado = elemento.querySelector(".input-checkbox").checked;
            
         if (condition) {

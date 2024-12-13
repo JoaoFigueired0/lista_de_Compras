@@ -1,5 +1,7 @@
 import { editarItem } from "./editatItem.js";
 import { excluirItem } from "./excluirItem.js";
+import { salvarItens } from "./localStorage.js";
+import { removerItens } from "./localStorage.js";
 import { verificarListaComprados } from "./verificarListaComprados.js";
 
 const listaDeCompras = document.getElementById("lista-de-compras");
@@ -64,7 +66,9 @@ export function criarItemDaLista(item) {
     imagemRemover.alt = "Remover";
 
     botaoRemover.addEventListener("click", function () {
+        removerItens(itemDaLista)
         excluirItem(itemDaLista)
+
     })
 
     botaoRemover.appendChild(imagemRemover);
@@ -93,6 +97,8 @@ export function criarItemDaLista(item) {
 
     itemDaLista.appendChild(containerItemLista);
     itemDaLista.appendChild(itemData);
+
+    salvarItens(nomeDoItem, itemData)
 
     return itemDaLista;
 }
